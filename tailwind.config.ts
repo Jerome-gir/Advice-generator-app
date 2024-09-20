@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   content: [
@@ -11,9 +11,17 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        ligthCyan: "var(--ligthCyan)",
+        neonGreen: "var(--neonGreen)",
+        grayishBlue: "var(--grayishBlue)",
+        darkGrayishBlue: "var(--darkGrayishBlue)",
+        darkBlue: "var(--darkBlue)",
+      },
+      fontFamily: {
+        manrope: ["manrope", "sans-serif"],
       },
     },
   },
   plugins: [],
-};
-export default config;
+}
+export default config
