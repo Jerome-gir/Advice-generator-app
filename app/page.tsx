@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <>
       <div className="bg-darkBlue h-screen flex justify-center items-center">
-        <div className="size-96 bg-darkGrayishBlue rounded-xl ">
+        <div className="size-96 bg-darkGrayishBlue rounded-xl relative">
           <div className="flex flex-col items-center justify-between gap-10 p-8">
             <h1 className="text-neonGreen text-sm tracking-widest uppercase">
               Advice # 117
@@ -22,7 +22,7 @@ export default async function Home() {
               width={295}
               height={16}
             />
-            <button className="rounded-full size-20 bg-neonGreen flex items-center justify-center fixed bottom-[260px]">
+            <button className="rounded-full size-20 bg-neonGreen flex items-center justify-center absolute -bottom-10">
               <Image
                 src="/icon-dice.svg"
                 alt="dice icon"
