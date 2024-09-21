@@ -1,9 +1,20 @@
+"use client"
+
 import { adviceSlip } from "@/actions/adviceSlip"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
-export default async function Home() {
-  const response = await adviceSlip()
-  console.log(response.slip.advice)
+export default function Home() {
+  const [advice, setAdvice] = useState({ id: "", advice: "" })
+
+  const fetchAdvice = async () => {
+    const newAdvice = await adviceSlip()
+    setAdvice(newAdvice)
+  }
+
+  useEffect(() => {
+    fetchAdvice()
+  }, [])
 
   return (
     <>
@@ -11,10 +22,10 @@ export default async function Home() {
         <div className="size-96 bg-darkGrayishBlue rounded-xl relative">
           <div className="flex flex-col items-center justify-between gap-10 p-8">
             <h1 className="text-neonGreen text-sm tracking-widest uppercase">
-              Advice # 117
+              Advice # {advice.id}
             </h1>
             <p className="text-xl font-extrabold text-ligthCyan text-center">
-              {response.slip.advice}
+              {advice.advice}
             </p>
             <Image
               src="/pattern-divider-mobile.svg"
@@ -22,7 +33,10 @@ export default async function Home() {
               width={295}
               height={16}
             />
-            <button className="rounded-full size-20 bg-neonGreen flex items-center justify-center absolute -bottom-10">
+            <button
+              onClick={fetchAdvice}
+              className="rounded-full size-20 bg-neonGreen flex items-center justify-center absolute -bottom-10"
+            >
               <Image
                 src="/icon-dice.svg"
                 alt="dice icon"
